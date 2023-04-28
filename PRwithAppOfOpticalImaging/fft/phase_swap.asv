@@ -1,0 +1,18 @@
+image1 = imread('jpgmono/LENNA.jpg');
+image2 = imread('jpgmono/Cameraman.jpg');
+
+f1 = fft2(double(image1));
+f2 = fft2(double(image2));
+f1abs = abs(fftshift(f1));
+f2abs = abs(fftshift(f2));
+f1phase = f1 ./ f1abs;
+f2phase = f2 ./ f2abs;
+
+figure;
+subplot(1, 2, 1)
+imshow(image1)
+title('Lena 256x256');
+
+subplot(1, 2, 2)
+imshow(image2)
+title('Cameraman 256x256');
